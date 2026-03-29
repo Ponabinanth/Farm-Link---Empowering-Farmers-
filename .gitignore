@@ -1,0 +1,9 @@
+node_modules/
+backend/node_modules/
+backend/logs/
+.vscode/
+.env
+backend/.env
+*.log
+*.db
+backend/prisma/prisma/*.db

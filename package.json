@@ -1,0 +1,10 @@
+{
+  "name": "Farm",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:all": "start-all.cmd",
+    "dev:all:5501": "start-all.cmd /frontendport 5501",
+    "dev:all:nobrowser": "start-all.cmd /nobrowser"
+  }
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Farm Link | Empowering Indian Farmers</title>
+    <link rel="stylesheet" href="style.css?v=20260321">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanline"></div>
+    <!-- Splash / Auth Page -->
+    <div id="auth-page" class="auth-page">
+        <div class="auth-card-container">
+<div class="auth-image-side">
+                <div class="auth-image-overlay">
+                    <h2>Empowering Indian Farmers</h2>
+                    <p>Connect directly with buyers, access AI-powered advice, and manage your farm with ease.</p>
+                </div>
+            </div>
+            <div class="auth-form-side">
+                <div class="logo-large">
+                    <i class="fas fa-seedling"></i>
+                    <h1>Farm Link</h1>
+                </div>
+                <div id="auth-server-status" class="auth-server-status" data-state="checking">
+                    <div class="auth-server-status-row">
+                        <span id="auth-server-pill" class="auth-server-pill">Checking server...</span>
+                        <button type="button" id="retry-server-btn" class="auth-server-retry">Retry</button>
+                    </div>
+                    <p id="auth-server-text">Connecting to the Farm API server.</p>
+                </div>
+                <form id="login-form" class="auth-form" novalidate>
+                    <h2>Welcome Back</h2>
+                    <p style="margin-bottom: 1.5rem; color: #64748b;">Sign in to continue to your dashboard</p>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="text" placeholder="Phone Number / Email" id="login-id" autocomplete="username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" id="login-pass" autocomplete="current-password" required>
+                    </div>
+                    <button type="submit" id="login-btn" class="primary-btn">Sign In</button>
+                    <p class="auth-toggle-text">New here? <a href="#" id="show-register">Create Account</a></p>
+                </form>
+                <form id="register-form" class="auth-form" style="display:none;" novalidate>
+                    <h2>Join Farm Link</h2>
+                    <p style="margin-bottom: 1.5rem; color: #64748b;">Start your digital farming journey today</p>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Full Name" id="reg-name" autocomplete="name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email Address" id="reg-email" autocomplete="email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="text" placeholder="Phone Number" id="reg-phone" autocomplete="tel" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Create Password" id="reg-pass" autocomplete="new-password" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-user-tag"></i>
+                        <select id="reg-role">
+                            <option value="farmer">I am a Farmer</option>
+                            <option value="buyer">I am a Buyer</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="register-btn" class="primary-btn">Create Account</button>
+                    <p class="auth-toggle-text">Already have an account? <a href="#" id="show-login">Sign In</a></p>
+                </form>
+                <div class="lang-selection">
+                    <button class="lang-btn active">English</button>
+                    <button class="lang-btn">हिन्दी</button>
+                    <button class="lang-btn">தமிழ்</button>
+                    <button class="lang-btn">తెలుగు</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="app-container" style="display:none;">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-seedling"></i>
+                <span>Farm Link</span>
+            </div>
+            <div class="sidebar-menu">
+                <div class="menu-group">MAIN</div>
+                <div class="nav-item active" data-view="home"><i class="fas fa-th-large"></i> Dashboard</div>
+                <div class="nav-item" data-view="marketplace"><i class="fas fa-store"></i> Live Marketplace</div>
+                <div class="nav-item" data-view="smart-buying"><i class="fas fa-shopping-basket"></i> Smart Buying</div>
+                <div class="nav-item" data-view="chat-negotiation"><i class="fas fa-comments"></i> Live Chat</div>
+
+                <div class="menu-group">UNIQUE SERVICES</div>
+                <div class="nav-item" data-view="stream"><i class="fas fa-video"></i> Live Farm View</div>
+                <div class="nav-item" data-view="ai-assistant"><i class="fas fa-robot"></i> AI Assistant</div>
+                <div class="nav-item" data-view="analytics"><i class="fas fa-chart-pie"></i> Personal Analytics</div>
+                <div class="nav-item" data-view="heatmap"><i class="fas fa-map-marked-alt"></i> Demand Heatmap</div>
+                <div class="nav-item" data-view="calculator"><i class="fas fa-calculator"></i> Profit Calculator</div>
+                <div class="nav-item" data-view="farmer-story"><i class="fas fa-book-open"></i> Farmer Stories</div>
+
+                <div class="menu-group">FEED & DISCOVERY</div>
+                <div class="nav-item" data-view="smart-feed"><i class="fas fa-rss"></i> Smart Feed</div>
+                <div class="nav-item" data-view="video-feed"><i class="fas fa-play-circle"></i> Short Videos</div>
+                <div class="nav-item" data-view="nearby-events"><i class="fas fa-calendar-alt"></i> Nearby Events</div>
+
+                <div class="menu-group">SMART ADVISOR</div>
+                <div class="nav-item" data-view="sell-smart"><i class="fas fa-lightbulb"></i> Sell Smart</div>
+                <div class="nav-item" data-view="market-intelligence"><i class="fas fa-brain"></i> Intelligence</div>
+                <div class="nav-item" data-view="automation"><i class="fas fa-robot"></i> Automation</div>
+                <div class="nav-item" data-view="sustainability"><i class="fas fa-leaf"></i> Sustainability</div>
+
+                <div class="menu-group">MARKETPLACE+</div>
+                <div class="nav-item" data-view="buyer-requests"><i class="fas fa-hand-holding-usd"></i> Buyer Requests</div>
+                <div class="nav-item" data-view="bulk-order"><i class="fas fa-truck-loading"></i> Bulk Order</div>
+                <div class="nav-item" data-view="gift-box"><i class="fas fa-gift"></i> Gift Boxes</div>
+                <div class="nav-item" data-view="adopt-farm"><i class="fas fa-heart"></i> Adopt a Farm</div>
+
+                <div class="menu-group">TOOLS</div>
+                <div class="nav-item" data-view="harvest-countdown"><i class="fas fa-hourglass-half"></i> Harvest Timer</div>
+                <div class="nav-item" data-view="expense-tracker"><i class="fas fa-receipt"></i> Expenses</div>
+                <div class="nav-item" data-view="service-marketplace"><i class="fas fa-briefcase"></i> Service Market</div>
+                <div class="nav-item" data-view="transparency-scanner"><i class="fas fa-qrcode"></i> QR Scanner</div>
+                <div class="nav-item" data-view="offline-sync"><i class="fas fa-sync"></i> Offline Sync</div>
+
+                <div class="menu-group">LEARNING+</div>
+                <div class="nav-item" data-view="e-book"><i class="fas fa-book"></i> E Book</div>
+                <div class="nav-item" data-view="knowledge-quiz"><i class="fas fa-question-circle"></i> Quiz Center</div>
+                <div class="nav-item" data-view="crop-experiment"><i class="fas fa-flask"></i> Experiments</div>
+
+                <div class="menu-group">ENGAGEMENT</div>
+                <div class="nav-item" data-view="deals"><i class="fas fa-bolt"></i> Daily Deals</div>
+                <div class="nav-item" data-view="gamification"><i class="fas fa-gamepad"></i> Gamification</div>
+                <div class="nav-item" data-view="learning"><i class="fas fa-graduation-cap"></i> Learning Hub</div>
+                <div class="nav-item" data-view="disease"><i class="fas fa-microscope"></i> AI Crop Doctor</div>
+
+                <div class="menu-group">OPERATIONS</div>
+                <div class="nav-item" data-view="emergency"><i class="fas fa-ambulance"></i> Emergency Sell</div>
+                <div class="nav-item" data-view="rescue"><i class="fas fa-hands-helping"></i> Crop Rescue</div>
+                <div class="nav-item" data-view="community"><i class="fas fa-users"></i> Community</div>
+                <div class="nav-item" data-view="harvest"><i class="fas fa-calendar-check"></i> Pre-Booking</div>
+                
+                <div class="menu-group">OTHER</div>
+                <div class="nav-item" data-view="weather"><i class="fas fa-cloud-sun"></i> Weather</div>
+                <div class="nav-item" data-view="iot"><i class="fas fa-microchip"></i> IoT Sensors</div>
+                <div class="nav-item" data-view="products"><i class="fas fa-boxes"></i> My Products</div>
+            </div>
+            <div class="sidebar-footer">
+                <button id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for crops, services, or farmers..." id="smart-search">
+                    <i class="fas fa-microphone" id="voice-trigger"></i>
+                </div>
+                <div class="top-bar-right">
+                    <div id="voice-visualizer" class="voice-visualizer" style="display:none;">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <button class="icon-btn" id="theme-toggle"><i class="fas fa-moon"></i></button>
+                    <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge">3</span></button>
+                    <div class="user-profile">
+                        <i class="fas fa-user-circle" style="font-size: 2rem; color: var(--primary-green);"></i>
+                        <span id="user-display-name">Abinanth</span>
+                    </div>
+                </div>
+            </header>
+
+            <div id="content-area" class="content-scroll">
+                <!-- Dynamic Content Loads Here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals & Popups -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <h3>Add New Crop Listing</h3>
+            <input type="text" id="new-product-name" placeholder="Crop Name">
+            <input type="number" id="new-product-stock" placeholder="Stock Quantity (kg)">
+            <input type="number" id="new-product-price" placeholder="Price per kg (₹)">
+            <input type="text" id="new-product-image-url" placeholder="Image URL (optional)">
+            <input type="file" id="crop-image">
+            <div class="modal-actions">
+                <button id="close-modal" class="secondary-btn">Cancel</button>
+                <button id="save-product" class="primary-btn">List Product</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification-popup" class="notification-popup">
+        <i class="fas fa-check-circle"></i>
+        <span id="notification-msg">Action Successful!</span>
+    </div>
+
+    <!-- Chat Window -->
+    <div id="chat-window" class="modal" style="display:none; z-index: 1001;">
+        <div class="modal-content" style="max-width: 400px; height: 500px; display: flex; flex-direction: column; padding: 0;">
+            <div style="padding: 15px; background: var(--primary-green); color: white; display: flex; justify-content: space-between; align-items: center; border-radius: 12px 12px 0 0;">
+                <h3 style="margin: 0;"><i class="fas fa-comments"></i> Live Chat</h3>
+                <i class="fas fa-times" id="close-chat" style="cursor: pointer;"></i>
+            </div>
+            <div id="chat-messages" style="flex: 1; padding: 15px; overflow-y: auto; background: #f8fafc;">
+                <!-- Messages load here -->
+            </div>
+            <div style="padding: 15px; border-top: 1px solid #e2e8f0; display: flex; gap: 10px;">
+                <input type="text" id="chat-input-field" placeholder="Type a message..." style="flex: 1;">
+                <button id="send-chat" class="primary-btn" style="width: auto; padding: 10px 20px;"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div id="invoice-modal" class="modal">
+        <div class="modal-content">
+            <h3>Transaction Invoice</h3>
+            <div id="invoice-content" style="margin: 20px 0; padding: 20px; background: #f8fafc; border-radius: 12px; border: 1px dashed #cbd5e1;">
+                <!-- Invoice details load here -->
+            </div>
+            <div class="modal-actions">
+                <button id="close-invoice" class="primary-btn">Close</button>
+                <button id="download-invoice" class="secondary-btn"><i class="fas fa-download"></i> Download PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Smart Navigation Panel -->
+    <div class="floating-actions-futuristic">
+        <button class="fab-futuristic" data-view="emergency" title="Quick Sell"><i class="fas fa-plus"></i></button>
+        <button class="fab-futuristic" data-view="marketplace" title="Quick Buy" style="background: #3b82f6;"><i class="fas fa-shopping-cart"></i></button>
+        <button class="fab-futuristic" data-view="chat-negotiation" title="Chat" style="background: #10b981;"><i class="fas fa-comments"></i></button>
+    </div>
+
+    <script src="script.js?v=20260321"></script>
+</body>
+</html>
